@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARLO & FIELD — Modern Footwear</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="announce">FREE SHIPPING ON ORDERS OVER $120 &nbsp;·&nbsp; NEW SEASON ARRIVALS ARE LIVE &nbsp;·&nbsp; EASY 30-DAY RETURNS</div>
+
+<header class="site">
+  <div class="container header-row">
+    <div style="display:flex;align-items:center;gap:18px;">
+      <button class="icon-btn mobile-nav-toggle" onclick="toggleDrawer(true)" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <a href="#home" class="logo" onclick="go('home')">ARLO <span>&</span> FIELD</a>
+    </div>
+    <nav class="main">
+      <a href="#shop" onclick="go('shop',{gender:'men'})">Men</a>
+      <a href="#shop" onclick="go('shop',{gender:'women'})">Women</a>
+      <a href="#shop" onclick="go('shop',{gender:'kids'})">Kids</a>
+      <a href="#shop" onclick="go('shop',{cat:'sneakers'})">Sneakers</a>
+      <a href="#shop" onclick="go('shop',{})">New Arrivals</a>
+      <a href="#lookbook" onclick="go('lookbook')">Lookbook</a>
+      <a href="#offers" class="sale" onclick="go('offers')">Sale</a>
+    </nav>
+    <div class="header-icons">
+      <div class="search-wrap">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="searchInput" placeholder="Search shoes…" oninput="onSearch(this.value)">
+      </div>
+      <button class="icon-btn" onclick="go('shop',{})" aria-label="Account" title="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      </button>
+      <button class="icon-btn" onclick="go('wishlist')" aria-label="Wishlist" title="Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+        <span class="badge" id="wishBadge">0</span>
+      </button>
+      <button class="icon-btn" onclick="go('cart')" aria-label="Cart" title="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-drawer" id="drawer" onclick="if(event.target===this)toggleDrawer(false)">
+  <div class="mobile-drawer-panel">
+    <a href="#" onclick="toggleDrawer(false);go('shop',{gender:'men'})">Men</a>
+    <a href="#" onclick="toggleDrawer(false);go('shop',{gender:'women'})">Women</a>
+    <a href="#" onclick="toggleDrawer(false);go('shop',{gender:'kids'})">Kids</a>
+    <a href="#" onclick="toggleDrawer(false);go('shop',{cat:'sneakers'})">Sneakers</a>
+    <a href="#" onclick="toggleDrawer(false);go('lookbook')">Lookbook</a>
+    <a href="#" onclick="toggleDrawer(false);go('offers')" style="color:var(--danger)">Sale</a>
+    <a href="#" onclick="toggleDrawer(false);go('about')">About</a>
+    <a href="#" onclick="toggleDrawer(false);go('contact')">Contact</a>
+  </div>
+</div>
+
+<main id="app"></main>
+
+<footer class="site">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color:var(--paper);margin-bottom:14px;">ARLO <span style="color:var(--kraft)">&</span> FIELD</div>
+        <p style="font-size:13px;line-height:1.7;max-width:280px;">Footwear built from real leather, honest stitching, and a refusal to cut corners. Designed in-house, tested on real pavement.</p>
+      </div>
+      <div><h4>Shop</h4>
+        <a href="#" onclick="go('shop',{gender:'men'})">Men</a>
+        <a href="#" onclick="go('shop',{gender:'women'})">Women</a>
+        <a href="#" onclick="go('shop',{gender:'kids'})">Kids</a>
+        <a href="#" onclick="go('offers')">Sale</a>
+      </div>
+      <div><h4>Support</h4>
+        <a href="#" onclick="go('sizeguide')">Size Guide</a>
+        <a href="#" onclick="go('contact')">Contact Us</a>
+        <a href="#" onclick="go('faq')">FAQs</a>
+        <a href="#" onclick="go('cart')">Track Order</a>
+      </div>
+      <div><h4>Brand</h4>
+        <a href="#" onclick="go('about')">About Us</a>
+        <a href="#" onclick="go('blog')">Journal</a>
+        <a href="#" onclick="go('lookbook')">Lookbook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Arlo &amp; Field Footwear Co.</span>
+      <span>Crafted for every step.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
